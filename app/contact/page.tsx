@@ -1,11 +1,11 @@
 // pages/contact.tsx
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
     message: "",
   });
 
@@ -16,17 +16,28 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    alert("Thank you! Your message has been sent.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    alert("Salamat! Na-send na ang imong message.");
+    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#6B4E71] p-6">
+    <div
+      className="min-h-screen bg-cover bg-center flex flex-col items-center justify-center"
+      style={{ backgroundImage: "url('/bgpic.jpg')" }}
+    >
+      {/* Navigation */}
+      <nav className="flex gap-6 mb-10 text-white font-semibold text-lg">
+        <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
+        <Link href="/contact">Contact Us</Link>
+      </nav>
+
+      {/* Contact Form */}
       <form 
         onSubmit={handleSubmit} 
-        className="bg-white p-8 rounded-lg shadow-md w-full max-w-lg"
+        className="bg-white p-8 rounded-lg shadow-md w-full max-w-md"
       >
-        <h2 className="text-2xl font-bold mb-6 text-[#6B4E71]">Contact Us</h2>
+        <h2 className="text-2xl font-bold mb-6 text-[#6B4E71] text-center">Contact Us</h2>
 
         <label className="block mb-2 font-semibold">Name</label>
         <input
@@ -48,15 +59,6 @@ export default function Contact() {
           required
         />
 
-        <label className="block mb-2 font-semibold">Subject</label>
-        <input
-          type="text"
-          name="subject"
-          value={formData.subject}
-          onChange={handleChange}
-          className="w-full border border-gray-300 rounded px-3 py-2 mb-4"
-        />
-
         <label className="block mb-2 font-semibold">Message</label>
         <textarea
           name="message"
@@ -69,7 +71,7 @@ export default function Contact() {
 
         <button
           type="submit"
-          className="bg-[#6B4E71] text-white px-6 py-2 rounded hover:bg-[#563758]"
+          className="bg-[#6B4E71] text-white px-6 py-2 rounded hover:bg-[#563758] w-full"
         >
           Send Message
         </button>
