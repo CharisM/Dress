@@ -5,7 +5,7 @@ export default function Home() {
     <div
       className="min-h-screen bg-cover bg-center"
       style={{
-        backgroundImage: "bgpic" // butangi imong image sa public folder
+        backgroundImage: "bgpic.jpg" // butangi imong image sa public folder
       }}
     >
 
