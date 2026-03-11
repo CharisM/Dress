@@ -15,7 +15,7 @@ export default function Home() {
   <ul className="flex gap-6 text-sm font-medium items-center">
 
     <li>
-      <Link href="/" className="text-blue-600">
+      <Link href="/home">
         HOME
       </Link>
     </li>
